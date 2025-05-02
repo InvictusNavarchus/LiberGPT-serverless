@@ -1,7 +1,7 @@
 {
-  "name": "slash-create-vercel-template",
-  "version": "1.0.0",
-  "description": "A template for slash-create in Vercel",
+  "name": "liber-gpt-serverless",
+  "version": "0.1.0",
+  "description": "A discord bot that supports slash commands deployed as a serverless function.",
   "private": true,
   "scripts": {
     "sync": "slash-up sync",
