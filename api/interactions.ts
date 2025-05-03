@@ -19,12 +19,22 @@ creator.on('commandRun', (command, _, ctx) =>
 creator.on('commandError', (command, error) => console.error(`Command ${command.commandName}:`, error));
 
 // Create a custom handler for the Vercel endpoint to implement signature verification
-const vercelEndpoint = async (req, res) => {
+const vercelEndpoint = async (req: {
+  headers: {
+    'x-signature-ed25519'?: string;
+    'x-signature-timestamp'?: string;
+  },
+  body: any
+}, res: {
+  status: (code: number) => {
+    end: (message: string) => void;
+  }
+}) => {
   const signature = req.headers['x-signature-ed25519'];
   const timestamp = req.headers['x-signature-timestamp'];
   
   // Get the request body as text
-  const rawBody = JSON.stringify(req.body);
+  const rawBody: string = JSON.stringify(req.body);
   
   // Verify the request
   if (!signature || !timestamp || 
