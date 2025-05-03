@@ -1,6 +1,6 @@
 {
   "name": "liber-gpt-serverless",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "description": "A discord bot that supports slash commands deployed as a serverless function.",
   "private": true,
   "scripts": {
